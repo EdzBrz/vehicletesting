@@ -20,7 +20,7 @@
    Options: 32-bit
    Payload: 32-bit 
 
- */
+*/
 
 #ifndef __COAP_H__
 #define __COAP_H__
@@ -31,9 +31,7 @@
 
 PACK_STRUCT_BEGIN
 struct coap_hdr {
-	PACK_STRUCT_FIELD(u2_t version);
-	PACK_STRUCT_FIELD(u2_t transaction_type);
-	PACK_STRUCT_FIELD(u4_t option_count);
+	PACK_STRUCT_FIELD(u8_t first_8_bit);
 	PACK_STRUCT_FIELD(u8_t code);
 	PACK_STRUCT_FIELD(u16_t transaction_ID);
 	PACK_STRUCT_FIELD(u32_t options);
@@ -44,8 +42,7 @@ PACK_STRUCT_END
 #define COAP_DEFAULT_PORT  61616
 
 /* function declarations */
-err_t coap_init(u16_t port);
-err_t coap_connect(struct ip_addr *dest, u16_t port);
+err_t coap_init(void);
 
 #endif /* __COAP_H__ */
 
